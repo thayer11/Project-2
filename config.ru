@@ -9,4 +9,4 @@ Bundler.require
 #Controllers
 require './app'
 
-run AvalancheTracker
+run App
