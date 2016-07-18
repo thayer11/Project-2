@@ -4,5 +4,5 @@ source "https://rubygems.org"
 
 # gem "rails"
 gem "sinatra"
-
-gem 'rerun'
+gem "rake"
+gem "rerun"
