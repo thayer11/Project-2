@@ -1,4 +1,4 @@
-class AvalancheTracker < Sinatra::Base
+class App < Sinatra::Base
 
 # General route actions
   get '/' do
