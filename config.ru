@@ -3,7 +3,7 @@ require 'bundler'
 Bundler.require
 
 #Models
-# require './avalanche_tracker'
+require './models/avalanche'
 
 
 #Controllers
