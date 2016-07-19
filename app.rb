@@ -1,9 +1,26 @@
 class App < Sinatra::Base
 
 # General route actions
- get '/avi' do
+get '/' do
+	erb :home
+end
+
+get '/avi' do
     Avalanche.all.to_json
+    erb :layout
   end
+
+get '/avi/:date' do
+	Avalanche.find(params[:date]).to_json
+end
+
+get '/avi/:state' do 
+	Avalanche.find(params[region]).to_json
+end
+
+get '/avi/:state' do
+	Avalanche.find(params[:state]).to_json
+end
 
  get '/avi/:id' do
 	Avalanche.find(params[:id]).to_json
