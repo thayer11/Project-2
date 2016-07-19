@@ -1,4 +1,4 @@
-require './models/new_avi.rb'
+require './models/avalanche.rb'
 
 Avalanche.create({
 	date: "02-07-2016",
