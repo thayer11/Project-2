@@ -1,0 +1,27 @@
+<div class="render_avalanches">
+    <ul>
+   <% @avalanches.each do |avalanche| %>
+     <li>Date: <%= avalanche[:date] %></li>
+            <li>State: <%= avalanche[:state] %></li>
+            <li>Region: <%= avalanche[:region] %></li>
+            <li>Avalanche Type: <%= avalanche[:avalanche_type] %></li>
+            <li>Latitude: <%= avalanche[:langitude] %></li>
+            <li>Longitude: <%= avalanche[:longitude] %></li>
+            <li>Aspect: <%= avalanche[:aspect] %></li>
+            <li>Elevation: <%= avalanche[:elevation] %> feet</li>
+            <li>Area Description: <%= avalanche[:area_description] %></li>
+            <li>Route Description: <%= avalanche[:route_description] %></li>
+            
+            <form method="post" action="/avi/<%= avalanche.id %>">  
+               <input name="_method" value="DELETE" type="hidden"/>
+               <button>Delete</button>
+             </form>
+
+         <form method="get" action="/avi/<%= avalanche.id%>/edit">
+               <input type="submit" value="edit"></input>
+         </form>
+      
+            </br>
+    <%end%>
+ </ul>
+</div>

@@ -15,9 +15,14 @@ get '/index' do
 end
 
 get '/avi' do
+	@avalanches = Avalanche.all
+	erb :avi
+end
+
+get '/avi_back_end' do
 	content_type "application/json"
     Avalanche.all.to_json
-  end
+end
 
 # get '/avi/:date' do
 # 	Avalanche.find(params[:date]).to_json
@@ -35,19 +40,27 @@ get '/avi' do
 	Avalanche.find(params[:id]).to_json
 end 
 
-#CREATE
-post '/avi' do
-	@make_avalanche = JSON.parse(request.body.read)
-	@new_avalanche = Avalanche.new(@make_avalanche)
-	@new_avalanche.save
-end
+# create
+ post '/avi' do
+   @avalanche = Avalanche.new(params[:avalanche])
+   if @avalanche.save
+     redirect("/")
+   else
+     erb :form 
+   end
+ end
+
+
 
 #UPDATE
 put '/avi/:id' do
 	@current_avalanche = Avalanche.find(params[:id])
-	@create_avalanche = JSON.parse(request.body.read)
-	@current_avalanche.update_attributes(@create_avalanche)
-	@current_avalanche.to_json
+	@create_avalanche = (params[:avalanche])
+	if @current_avalanche.update_attributes(@create_avalanche)
+		redirect ("/avi")
+	else
+		erb :edit 
+	end
 end
 
 delete '/avi/:id' do
