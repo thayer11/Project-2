@@ -10,14 +10,24 @@ function initMap() {
        zoom: 10
      });
 
-     // Create a marker and set its position.
-     var marker = new google.maps.Marker({
+     $.get('/avi', function(avalanches){
+      for (var i = 0; i<avalanches.length; i++){
+       var marker = new google.maps.Marker({
        map: map,
-       position: myLatLng,
-       title: 'Buena Vista'
+       position: {lat: avalanches[i].langitude, lng: avalanches[i].longitude} 
+     })
+     }
+      infowindow = new google.maps.infowindow({
+        content:formatInfoWindow(avalanches)
+      });
+      marker.addListener("click", function(){
+      infowindow.open(map, marker);
+     })
      });
    }
 initMap();
         
 });
+
+
 

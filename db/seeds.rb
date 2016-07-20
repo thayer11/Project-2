@@ -24,8 +24,9 @@ Avalanche.create({
     buried: "1",
     caught: "1",
     dead: "none",
-    photo_url: "http//:www.photourl"
-    
+    photo_url: "http//:www.photourl",
+    langitude: 39.79833,
+    longitude: -105.777
 })
 
 Avalanche.create({
@@ -52,7 +53,9 @@ Avalanche.create({
     buried: "two",
     caught: "two",
     dead: "one",
-    photo_url: "http//:www.snowjpg"
+    photo_url: "http//:www.snowjpg",
+    langitude: 39.111,
+    longitude: -107.0206
     
 })
 
@@ -80,6 +83,8 @@ Avalanche.create({
     buried: "0",
     caught: "2",
     dead: "0",
-    photo_url: "none"
+    photo_url: "none",
+    langitude: 39.6636,
+    longitude: -105.879
     
 })

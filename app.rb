@@ -6,8 +6,8 @@ get '/' do
 end
 
 get '/avi' do
+	content_type "application/json"
     Avalanche.all.to_json
-    erb :layout
   end
 
 get '/avi/:date' do
