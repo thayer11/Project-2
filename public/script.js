@@ -12,18 +12,21 @@ function initMap() {
 
      $.get('/avi', function(avalanches){
       for (var i = 0; i<avalanches.length; i++){
-       var marker = new google.maps.Marker({
-       map: map,
-       position: {lat: avalanches[i].langitude, lng: avalanches[i].longitude} 
-     })
+
+        var infoWindow = new google.maps.InfoWindow({
+          content:"Hi"
+        });
+
+        var marker = new google.maps.Marker({
+          map: map,
+          position: {lat: avalanches[i].langitude, lng: avalanches[i].longitude} 
+        })
+
+        marker.addListener("click", function(){
+          infoWindow.open(map, marker);
+        })         
      }
-      infowindow = new google.maps.infowindow({
-        content:formatInfoWindow(avalanches)
-      });
-      marker.addListener("click", function(){
-      infowindow.open(map, marker);
-     })
-     });
+    });
    }
 initMap();
         
