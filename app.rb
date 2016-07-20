@@ -1,8 +1,17 @@
 class App < Sinatra::Base
-
+require 'json'
+set :method_override, true
 # General route actions
 get '/' do
 	erb :home
+end
+
+get '/form' do
+	erb :form
+end
+
+get '/index' do
+	erb :index
 end
 
 get '/avi' do
@@ -10,17 +19,17 @@ get '/avi' do
     Avalanche.all.to_json
   end
 
-get '/avi/:date' do
-	Avalanche.find(params[:date]).to_json
-end
+# get '/avi/:date' do
+# 	Avalanche.find(params[:date]).to_json
+# end
 
-get '/avi/:state' do 
-	Avalanche.find(params[region]).to_json
-end
+# get '/avi/:state' do 
+# 	Avalanche.find(params[region]).to_json
+# end
 
-get '/avi/:state' do
-	Avalanche.find(params[:state]).to_json
-end
+# get '/avi/:state' do
+# 	Avalanche.find(params[:state]).to_json
+# end
 
  get '/avi/:id' do
 	Avalanche.find(params[:id]).to_json
