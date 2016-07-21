@@ -1,6 +1,5 @@
 $(document).on("ready",function(){
 
-
 function initMap() {
      var myLatLng = {lat: 38.829332, lng: -106.139515};
 
@@ -11,7 +10,9 @@ function initMap() {
        zoom: 10
      });
 
-     $.get('/avi_back_end', function(avalanches){
+      
+
+      $.get('/avi_back_end', function(avalanches){
       console.log(avalanches);
       for (let i = 0; i<avalanches.length; i++){
 
@@ -22,12 +23,16 @@ function initMap() {
 
           marker.addListener("click", function(e){
           console.log(e);
-          infoWindow.open(map, marker);
-        })         
-
-        var infoWindow = new google.maps.InfoWindow({
-          content:"Hi"
+                  
+      var contentString = '<a href= "/avi/' + avalanches[i].id + '">'+ avalanches[i].region + '</a>';
+                  var infoWindow = new google.maps.InfoWindow({
+          content: contentString
+          // + ' ' + contentString
         })
+
+          infoWindow.open(map, marker);
+        
+        })         
 
         
      }
