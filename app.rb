@@ -10,9 +10,15 @@ get '/form' do
 	erb :form
 end
 
-get '/index' do
-	erb :index
+get '/avi/:id/edit' do
+	@avalanche = Avalanche.find(params[:id])
+	erb :edit
 end
+
+# get 'avi/:id/update' do
+# 	avalanche = Avalanche.find(params[:id])
+# 	erb :show
+# end
 
 get '/avi' do
 	@avalanches = Avalanche.all
@@ -36,13 +42,14 @@ end
 # 	Avalanche.find(params[:state]).to_json
 # end
 
- get '/avi/:id' do
-	Avalanche.find(params[:id]).to_json
-end 
+ # get '/avi/:id' do
+	# Avalanche.find(params[:id]).to_json
+ # end 
 
 # create
  post '/avi' do
    @avalanche = Avalanche.new(params[:avalanche])
+   p @avalanche
    if @avalanche.save
      redirect("/")
    else
@@ -50,13 +57,19 @@ end
    end
  end
 
-
+#EDIT
+get '/avi/:id/edit' do
+	@avalanche = Avalanche.find(params[:id])
+	erb :edit
+end
 
 #UPDATE
-put '/avi/:id' do
-	@current_avalanche = Avalanche.find(params[:id])
-	@create_avalanche = (params[:avalanche])
-	if @current_avalanche.update_attributes(@create_avalanche)
+put '/avi/:id/update' do
+	@avalanche = Avalanche.find(params[:id])
+	p "hey"
+	p params[:avalanche]
+	if @avalanche.update(params[:avalanche])
+		@avalanche.save
 		redirect ("/avi")
 	else
 		erb :edit 

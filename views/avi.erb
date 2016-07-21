@@ -8,7 +8,7 @@
             <li>Latitude: <%= avalanche[:langitude] %></li>
             <li>Longitude: <%= avalanche[:longitude] %></li>
             <li>Aspect: <%= avalanche[:aspect] %></li>
-            <li>Elevation: <%= avalanche[:elevation] %> feet</li>
+            <li>Elevation: <%= avalanche[:elevation] %></li>
             <li>Area Description: <%= avalanche[:area_description] %></li>
             <li>Route Description: <%= avalanche[:route_description] %></li>
             
@@ -17,9 +17,9 @@
                <button>Delete</button>
              </form>
 
-         <form method="get" action="/avi/<%= avalanche.id%>/edit">
-               <input type="submit" value="edit"></input>
-         </form>
+         <a href="/avi/<%= avalanche.id %>/edit">
+            <button class="btn" >Edit</button>
+         </a>
       
             </br>
     <%end%>
