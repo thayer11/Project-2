@@ -1,24 +1,15 @@
 class App < Sinatra::Base
 require 'json'
 set :method_override, true
-# General route actions
+
 get '/' do
 	erb :home
 end
 
-get '/form' do
-	erb :form
-end
-
-get '/avi/:id/edit' do
+get '/avi/:id' do
 	@avalanche = Avalanche.find(params[:id])
-	erb :edit
+	erb :show
 end
-
-# get 'avi/:id/update' do
-# 	avalanche = Avalanche.find(params[:id])
-# 	erb :show
-# end
 
 get '/avi' do
 	@avalanches = Avalanche.all
@@ -30,23 +21,12 @@ get '/avi_back_end' do
     Avalanche.all.to_json
 end
 
-# get '/avi/:date' do
-# 	Avalanche.find(params[:date]).to_json
-# end
+#NEW
+get '/form' do
+	erb :form
+end
 
-# get '/avi/:state' do 
-# 	Avalanche.find(params[region]).to_json
-# end
-
-# get '/avi/:state' do
-# 	Avalanche.find(params[:state]).to_json
-# end
-
- # get '/avi/:id' do
-	# Avalanche.find(params[:id]).to_json
- # end 
-
-# create
+# CREATE
  post '/avi' do
    @avalanche = Avalanche.new(params[:avalanche])
    p @avalanche
@@ -70,9 +50,9 @@ put '/avi/:id/update' do
 	p params[:avalanche]
 	if @avalanche.update(params[:avalanche])
 		@avalanche.save
-		redirect ("/avi")
+		redirect ("/avi/#{@avalanche[:id]}")
 	else
-		erb :edit 
+		erb :edit  
 	end
 end
 
