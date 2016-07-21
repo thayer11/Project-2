@@ -79,6 +79,7 @@ end
 delete '/avi/:id' do
 	@no_more_avi = Avalanche.find(params[:id])
 	@no_more_avi.destroy
+	redirect ("/avi")
 end
 
 end
