@@ -7,3 +7,5 @@ The user will be able to filter avalanche by date, state, and specific location.
 The user will also be able to record general observations such as observed weak layers or strange wind events in the spirit of prevention.  
 
 The user will enter personal information such as credentials and affiliations. 
+
+https://avalanche-tracker.herokuapp.com/
