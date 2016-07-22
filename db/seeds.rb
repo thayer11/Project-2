@@ -88,3 +88,67 @@ Avalanche.create({
     longitude: -105.879
     
 })
+
+Avalanche.create({
+    date: "12-25-16",
+    state: "Colorado",
+    region: "Steamboat",
+    avalanche_type: "slab",
+    size_crown: "4.57ft",
+    size_runout: "50ft",
+    temperature: "12 degrees Fahrenheit",
+    temperature_high_past_24hrs: "15 degrees Fahrenheit",
+    temperature_low_past_24hrs: "3 degrees Fahrenheit",
+    percipitation: "6ft",
+    wind_speed: "13mph",
+    wind_direction: "northwest",
+    aspect: "south",
+    elevation: "10,111ft",
+    snowpack: "weak layer due to extended sunny periods",
+    area_description: "northern area off the backside of big poppa",
+    route_description: "we approached on the northridge and cut over above the rollover about halfway up.",
+    trigger: "dog",
+    did_you_see_any_avalanches: "oh yeah",
+    did_you_trigger_any_avalanches: "yes",
+    buried: "1 dog",
+    caught: "2",
+    dead: "1 dog",
+    photo_url: "none",
+    langitude: 40.475,
+    longitude: -106
+    
+})
+
+Avalanche.create({
+    date: "12-24-16",
+    state: "Colorado",
+    region: "Buena Vista",
+    avalanche_type: "wet slide",
+    size_crown: "4.57ft",
+    size_runout: "50ft",
+    temperature: "12 degrees Fahrenheit",
+    temperature_high_past_24hrs: "16 degrees Fahrenheit",
+    temperature_low_past_24hrs: "3 degrees Fahrenheit",
+    percipitation: "6ft",
+    wind_speed: "34mph",
+    wind_direction: "northwest",
+    aspect: "north",
+    elevation: "10,111ft",
+    snowpack: "weak layer due to extended sunny periods and light barometric pressure",
+    area_description: "northern area off the backside of edelveiss",
+    route_description: "we approached on the northridge and cut over above the rollover about halfway up.",
+    trigger: "natural event",
+    did_you_see_any_avalanches: "yes",
+    did_you_trigger_any_avalanches: "yes",
+    buried: "0",
+    caught: "0",
+    dead: "0",
+    photo_url: "none",
+    langitude: 38.84,
+    longitude: -106
+    
+})
+
+
+
+

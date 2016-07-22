@@ -16,6 +16,13 @@ get '/avi' do
 	erb :avi
 end
 
+get '/date' do 
+	@date = params[:date]
+	p @date
+	@avalanches = Avalanche.where("date LIKE ?", "%#{@date}%")
+	erb :avi
+end
+
 get '/avi_back_end' do
 	content_type "application/json"
     Avalanche.all.to_json
@@ -56,6 +63,19 @@ put '/avi/:id/update' do
 	end
 end
 
+put '/avi/:id/update' do
+	@avalanche = Avalanche.find(params[:id])
+	p "hey"
+	p params[:avalanche]
+	if @avalanche.update(params[:avalanche])
+		@avalanche.save
+		redirect ("/avi/#{@avalanche[:id]}")
+	else
+		erb :edit  
+	end
+end
+
+#DELETE
 delete '/avi/:id' do
 	@no_more_avi = Avalanche.find(params[:id])
 	@no_more_avi.destroy
