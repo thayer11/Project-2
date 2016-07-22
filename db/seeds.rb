@@ -84,7 +84,7 @@ Avalanche.create({
     caught: "2",
     dead: "0",
     photo_url: "none",
-    langitude: 39.6636,
+    langitude: 39.1636,
     longitude: -105.879
     
 })

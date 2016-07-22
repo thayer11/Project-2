@@ -7,7 +7,7 @@ function initMap() {
      var map = new google.maps.Map(document.getElementById('map'), {
        center: myLatLng,
        scrollwheel: false,
-       zoom: 10
+       zoom: 6
      });
 
       
@@ -24,8 +24,9 @@ function initMap() {
           marker.addListener("click", function(e){
           console.log(e);
                   
-      var contentString = '<a href= "/avi/' + avalanches[i].id + '">'+ avalanches[i].region + '</a>';
-                  var infoWindow = new google.maps.InfoWindow({
+          var contentString = '<a href= "/avi/' + avalanches[i].id + '">'+ avalanches[i].region + '</a>';
+          
+          var infoWindow = new google.maps.InfoWindow({
           content: contentString
           // + ' ' + contentString
         })
