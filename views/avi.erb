@@ -1,7 +1,20 @@
-<div class="render_avalanches">
-    <ul>
-   <% @avalanches.each do |avalanche| %>
-     <li>Date: <%= avalanche[:date] %></li>
+ 
+<div class="container text-center">
+ <% @avalanches.each do |avalanche|%>   
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+         
+          <%= avalanche[:region] %>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+     <ul>
+            <li>Date: <%= avalanche[:date] %></li>
             <li>State: <%= avalanche[:state] %></li>
             <li>Region: <%= avalanche[:region] %></li>
             <li>Avalanche Type: <%= avalanche[:avalanche_type] %></li>
@@ -14,7 +27,7 @@
             
             <form method="post" action="/avi/<%= avalanche.id %>">  
                <input name="_method" value="DELETE" type="hidden"/>
-               <button>Delete</button>
+               <button class="btn">Delete</button>
              </form>
 
          <a href="/avi/<%= avalanche.id %>/edit">
@@ -25,3 +38,11 @@
     <%end%>
  </ul>
 </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    
+   

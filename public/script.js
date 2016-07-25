@@ -24,7 +24,9 @@ function initMap() {
           marker.addListener("click", function(e){
           console.log(e);
                   
-          var contentString = '<a href= "/avi/' + avalanches[i].id + '">'+ avalanches[i].region + '</a>';
+          var contentString = '<a href= "/avi/' + avalanches[i].id + '">'+ 
+              avalanches[i].region + '</a>' + ' ' + avalanches[i].date 
+              + ' ' + avalanches[i].avalanche_type;
           
           var infoWindow = new google.maps.InfoWindow({
           content: contentString
