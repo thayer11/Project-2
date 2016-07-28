@@ -1,47 +1,49 @@
  
-<div class="container text-center">
- <% @avalanches.each do |avalanche|%>   
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
+<div class="text-center">
+  <% @avalanches.each do |avalanche|%>   
+
+<div class="container panel-group accordion" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default accordion-group">
     <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-         
+      <div>
+      <h4 class="panel-title text-center">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne<%=avalanche[:id]%>" aria-expanded="true" aria-controls="collapseOne"> 
           <%= avalanche[:region] %>
         </a>
       </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
-     <ul>
-            <li>Date: <%= avalanche[:date] %></li>
-            <li>State: <%= avalanche[:state] %></li>
-            <li>Region: <%= avalanche[:region] %></li>
-            <li>Avalanche Type: <%= avalanche[:avalanche_type] %></li>
-            <li>Latitude: <%= avalanche[:langitude] %></li>
-            <li>Longitude: <%= avalanche[:longitude] %></li>
-            <li>Aspect: <%= avalanche[:aspect] %></li>
-            <li>Elevation: <%= avalanche[:elevation] %></li>
-            <li>Area Description: <%= avalanche[:area_description] %></li>
-            <li>Route Description: <%= avalanche[:route_description] %></li>
-            
-            <form method="post" action="/avi/<%= avalanche.id %>">  
-               <input name="_method" value="DELETE" type="hidden"/>
-               <button class="btn">Delete</button>
-             </form>
+      </div>
+    <div id="collapseOne<%=avalanche[:id]%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body text-center">
+              <ul>
+                <p><strong>Date: </strong> <%= avalanche[:date] %></p>
+                <p><strong>State: </strong> <%= avalanche[:state] %></p>
+                <p><strong>Region: </strong> <%= avalanche[:region] %></p>
+                <p><strong>Avalanche Type: </strong> <%= avalanche[:avalanche_type] %></p>
+                <p><strong>Latitude: </strong> <%= avalanche[:langitude] %></p>
+                <p><strong>Longitude: </strong> <%= avalanche[:longitude] %></p>
+                <p><strong>Aspect: </strong> <%= avalanche[:aspect] %></p>
+                <p><strong>Elevation: </strong> <%= avalanche[:elevation] %></p>
+                <p><strong>Area Description: </strong> <%= avalanche[:area_description] %></p>
+                <p><strong>Route Description: </strong> <%= avalanche[:route_description] %></p>
+                
+                <form method="post" action="/avi/<%= avalanche.id %>">  
+                   <input name="_method" value="DELETE" type="hidden"/>
+                   <button class="btn">Delete</button>
+                </form>
 
-         <a href="/avi/<%= avalanche.id %>/edit">
-            <button class="btn" >Edit</button>
-         </a>
-      
-            </br>
-    <%end%>
- </ul>
-</div>
+                <a href="/avi/<%= avalanche.id %>/edit">
+                <button class="btn" >Edit</button>
+                </a>
+            </ul>
       </div>
     </div>
   </div>
-</div>
+  </div>
+  </div>
+  </div>
+  <% end %>
+
+
 
 
     
